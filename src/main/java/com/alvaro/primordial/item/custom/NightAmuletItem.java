@@ -10,6 +10,8 @@ import net.minecraft.world.level.Level;
 
 public class NightAmuletItem extends Item {
 
+    public static final int cooldown = 200;
+
     public NightAmuletItem(Properties properties) {
         super(properties);
     }
@@ -23,9 +25,17 @@ public class NightAmuletItem extends Item {
             return InteractionResultHolder.success(stack);
         }
 
+        Item item = stack.getItem();
+
+        if(player.getCooldowns().isOnCooldown(item)) {
+            return InteractionResultHolder.fail(stack);
+        }
+
         ServerLevel serverLevel = (ServerLevel) level;
 
         serverLevel.setDayTime(13000);
+
+        player.getCooldowns().addCooldown(item, cooldown);
 
         return InteractionResultHolder.success(stack);
     }
