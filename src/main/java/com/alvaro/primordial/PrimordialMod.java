@@ -33,7 +33,11 @@ public class PrimordialMod {
             event.accept(ModItems.STORM_AMULET.get());
             event.accept(ModItems.SUMMER_AMULET.get());
             event.accept(ModItems.NIGHT_AMULET.get());
-            event.accept(ModItems.DAY_AMULET);
+            event.accept(ModItems.DAY_AMULET.get());
+        }
+
+        if(event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(ModItems.SWORD_INVISIBLE.get());
         }
     }
 }

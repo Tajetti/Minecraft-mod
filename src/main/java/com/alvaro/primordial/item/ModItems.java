@@ -5,7 +5,10 @@ import com.alvaro.primordial.item.custom.DayAmuletItem;
 import com.alvaro.primordial.item.custom.NightAmuletItem;
 import com.alvaro.primordial.item.custom.StormAmuletItem;
 import com.alvaro.primordial.item.custom.SummerAmuletItem;
+import com.alvaro.primordial.item.sword.InvisibleSword;
+
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -34,4 +37,13 @@ public class ModItems {
     public static final RegistryObject<Item> DAY_AMULET =
             ITEMS.register("day_amulet",
                     () -> new DayAmuletItem(new Item.Properties().stacksTo(1)));
+
+    public static final RegistryObject<Item> SWORD_INVISIBLE =
+            ITEMS.register("sword_invisible",
+                    () -> new InvisibleSword(
+                            Tiers.NETHERITE,
+                            10,
+                            -1.4F,
+                            new Item.Properties().stacksTo(1)
+                    ));
 }
